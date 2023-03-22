@@ -19,10 +19,6 @@ const DetailTodoListPage = () => {
     <AppLayout>
       <div>
         <div>
-          <button>목록으로</button>
-        </div>
-
-        <div>
           <h3>{detailTodoList.todo}</h3>
         </div>
         <div>
@@ -30,6 +26,10 @@ const DetailTodoListPage = () => {
         </div>
         <div>
           <span>작성일: </span> <span>{detailTodoList.createdAt}</span>
+        </div>
+
+        <div>
+          <button>목록으로</button>
         </div>
       </div>
     </AppLayout>
