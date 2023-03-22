@@ -1,0 +1,15 @@
+### Node ###
+# Dependency directories
+node_modules/
+logs
+*.log
+# dotenv environment variable files
+.next
+.env
+
+# Serverless directories
+.serverless
+/front/build/
+
+# misc
+.DS_Store
