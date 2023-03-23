@@ -20,7 +20,7 @@ import {
   SideMenuList,
   Main,
   EmptyBlock,
-} from '../styles/AppLayoutSt';
+} from '../styles/components/AppLayoutSt';
 
 // components
 import SideMenuBar from './SideMenuBar';
@@ -44,7 +44,8 @@ const AppLayout = ({ children }) => {
 
   // 내 프로필 아이콘 클릭
   const onClickMyProfile = () => {
-    setMyProfile((prevState) => !prevState);
+    alert('기능 구현중입니다...');
+    // setMyProfile((prevState) => !prevState);
   };
 
   // 로그아웃
@@ -94,7 +95,8 @@ const AppLayout = ({ children }) => {
             <UserProfileLists>
               {myProfile ? (
                 <ListsItem>
-                  <Link href="/myPage">
+                  {/* <Link href="/myPage"> */}
+                  <Link href="#">
                     <div id="myInfo">내 정보</div>
                   </Link>
 

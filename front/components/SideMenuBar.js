@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import Link from 'next/link';
 
 // styled-components
-import { SideMenuWrapper, ListItemWrapper, ListItem } from '../styles/SideMenuBarSt';
+import { SideMenuWrapper, ListItemWrapper, ListItem } from '../styles/components/SideMenuBarSt';
 
 const SideMenuBar = () => {
   return (
