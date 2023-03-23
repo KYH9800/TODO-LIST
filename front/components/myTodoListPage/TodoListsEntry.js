@@ -8,7 +8,7 @@ import {
   CheckInput,
   DateLine,
   DetailTodo,
-} from '../../styles/myTodoListPage/TodoListsEntrySt';
+} from '../../styles/components/TodoListsEntrySt';
 
 const TodoListsEntry = ({ data }) => (
   <TodoBox>

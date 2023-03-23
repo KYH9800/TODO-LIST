@@ -163,4 +163,13 @@ export const detailTodoList = {
   todo: '공부하기',
   detailContent: '영어 공부하기',
   createdAt: '2023-03-23',
+  done: 0,
+};
+
+export const detailDoneTodoList = {
+  id: 1,
+  todo: '완료 된 목록',
+  detailContent: null,
+  createdAt: '2023-03-23',
+  done: 1,
 };
