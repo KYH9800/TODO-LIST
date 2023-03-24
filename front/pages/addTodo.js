@@ -7,8 +7,15 @@ import { Wrapper, Form, PageTilte, SubTitle, Input, Textarea, BtnWrapper, Button
 // AppLayout
 import AppLayout from '../components/AppLayout';
 
+// custom hooks
+import useInput from '../hooks/useInput';
+
+/* TODO LIST 생성 */
 const AddTodo = () => {
   const addMenu = useRef();
+
+  const [todo, onChangeTodo] = useInput('');
+  const [detailContent, onChangeDetailContent] = useInput('');
 
   // modal 외부 클릭 시 닫힘
   const modalCloseHandler = ({ target }) => {
@@ -33,6 +40,10 @@ const AddTodo = () => {
 
     if (confirm('작업을 등록하시겠습니까?')) {
       console.log('submit');
+      console.log('todo: ', todo);
+      console.log('detailContent: ', detailContent);
+      console.log('done: ', { done: 0 });
+      // dispatch { todo: todo, detailContent: detailContent, done: 0 }
     }
   };
 
@@ -50,12 +61,12 @@ const AddTodo = () => {
           <PageTilte>작업 등록하기</PageTilte>
           <div>
             <SubTitle>작업 내용: </SubTitle>
-            <Input type="text" placeholder="작업내용" />
+            <Input type="text" placeholder="작업내용" value={todo} onChange={onChangeTodo} />
           </div>
 
           <div>
             <SubTitle>작업 상세내용: </SubTitle>
-            <Textarea type="text" placeholder="작업 상세내용" />
+            <Textarea type="text" placeholder="작업 상세내용" value={detailContent} onChange={onChangeDetailContent} />
           </div>
 
           <BtnWrapper>
