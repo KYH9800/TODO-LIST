@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Head from 'next/head';
 // redux
-// import wrapper from '../store/configureStore';
+import wrapper from '../store/configureStore';
 // global.css
 import '../styles/global.css';
 
@@ -21,5 +21,5 @@ TodoList.propTypes = {
   Component: PropTypes.func.isRequired,
 };
 
-// export default wrapper.withRedux(TodoList);
-export default TodoList;
+// export default TodoList;
+export default wrapper.withRedux(TodoList);
