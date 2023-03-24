@@ -2,39 +2,31 @@
 const { Model } = require('sequelize');
 
 module.exports = (sequelize, DataTypes) => {
-  class Todo extends Model {
+  class Comment extends Model {
     static associate(models) {
-      this.hasMany(models.Comment, { foreignKey: 'todo_id' });
       this.belongsTo(models.User, { foreignKey: 'user_id', onDelete: 'cascade' });
+      this.belongsTo(models.Todo, { foreignKey: 'todo_id', onDelete: 'cascade' });
     }
   }
 
-  Todo.init(
+  Comment.init(
     {
-      todo_id: {
+      comment_id: {
         type: DataTypes.INTEGER,
         primaryKey: true,
         allowNull: false,
         autoIncrement: true,
       },
-      todo: {
+      content: {
         type: DataTypes.STRING,
-        allowNull: false,
-      },
-      detailContent: {
-        type: DataTypes.STRING,
-        allowNull: true,
-      },
-      done: {
-        type: DataTypes.INTEGER,
         allowNull: false,
       },
     },
     {
       sequelize,
-      modelName: 'Todo',
+      modelName: 'Comment',
     }
   );
 
-  return Todo;
+  return Comment;
 };
