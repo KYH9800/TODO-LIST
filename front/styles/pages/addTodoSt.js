@@ -13,13 +13,17 @@ export const Wrapper = styled.div`
 `;
 
 export const Form = styled.form`
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
   display: flex;
   flex-direction: column;
   gap: 3px;
 
   background-color: #ebedf3;
 
-  margin: 7% auto;
   padding: 15px;
 
   width: 50%;
@@ -27,18 +31,16 @@ export const Form = styled.form`
   border-radius: 5px;
 
   @media (max-width: 1200px) {
-    margin: 10% auto;
     width: 70%;
   }
 
   @media (max-width: 770px) {
     width: 80%;
-    margin: 15% auto;
   }
 
-  @media (max-width: 450px) {
+  /* @media (max-width: 450px) {
     margin: 20% auto;
-  }
+  } */
 `;
 
 export const PageTilte = styled.h2`

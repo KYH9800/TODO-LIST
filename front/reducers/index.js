@@ -2,7 +2,7 @@ import { combineReducers } from 'redux'; // 여러 리듀서들을 하나로 합
 import { HYDRATE } from 'next-redux-wrapper';
 
 import todo from './todo';
-// import user from './user';
+import user from './user';
 
 // HYDRATE가 동작할 때 initStates들이 index user todo 자체를 덮어씌울 수 있도록 구조를 작성
 const rootReducer = (state, action) => {
@@ -13,7 +13,7 @@ const rootReducer = (state, action) => {
     default: {
       const combineReducer = combineReducers({
         todo,
-        // user,
+        user,
       });
       return combineReducer(state, action);
     }

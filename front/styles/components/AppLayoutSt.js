@@ -50,6 +50,20 @@ export const CustomSpace = styled(Space)`
   }
 `;
 
+export const Span = styled.span`
+  font-size: 15px;
+  font-weight: 400;
+  color: #c7c7c7;
+
+  #user-nickname {
+    font-size: 16px;
+    font-weight: 500;
+    color: #fff;
+
+    margin-right: 2px;
+  }
+`;
+
 export const UserProfileLists = styled.div`
   position: absolute;
   top: 117.8%;
