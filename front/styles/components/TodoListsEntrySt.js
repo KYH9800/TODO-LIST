@@ -79,6 +79,12 @@ export const CheckInput = styled.input`
   }
 `;
 
+export const TodoNum = styled.div`
+  margin: 8px 10px;
+  font-size: 15px;
+  font-weight: 600;
+`;
+
 export const DateLine = styled.div`
   margin: 0 15px;
 `;

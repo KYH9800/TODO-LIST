@@ -104,8 +104,8 @@ const reducer = (state = initialState, action) =>
       case LOAD_TODOS_SUCCESS:
         draft.loadTodosLoading = false;
         draft.loadTodosDone = true;
-        draft.mainTodos = draft.mainTodos.concat(action.data);
-        draft.hasMoreTodos = action.data.length === 10; // 10개의 게시글을 불러온다
+        draft.mainTodos = draft.mainTodos.concat(action.data.todos);
+        draft.hasMoreTodos = action.data.todos.length === 25; // 13개의 게시글을 불러온다
         break;
       case LOAD_TODOS_FAILURE:
         draft.loadTodosLoading = false;

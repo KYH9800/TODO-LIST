@@ -13,6 +13,7 @@ import {
   Web,
   Mobile,
   CustomSpace,
+  Span,
   UserProfileLists,
   ListsItem,
   CustomMenuOutlined,
@@ -25,12 +26,34 @@ import {
 // components
 import SideMenuBar from './SideMenuBar';
 
+// redux
+import { useDispatch, useSelector } from 'react-redux';
+import { LOGOUT_REQUEST } from '../reducers/user';
+
+// app layout
 const AppLayout = ({ children }) => {
+  const dispatch = useDispatch();
   const [menubar, setMenubar] = useState(false);
   const [myProfile, setMyProfile] = useState(false);
 
   const userMenu = useRef();
   const sideMenu = useRef();
+
+  const { me, logoutError } = useSelector((state) => state.user);
+
+  // 로그아웃 에러 시 알림
+  useEffect(() => {
+    if (logoutError) {
+      alert(logoutError);
+    }
+  }, [logoutError]);
+
+  // 내 정보가 없으면 로그인 화면으로 이동
+  useEffect(() => {
+    if (!me) {
+      Router.replace('/');
+    }
+  }, [me]);
 
   // home 버튼
   const onClickHome = () => {
@@ -44,13 +67,14 @@ const AppLayout = ({ children }) => {
 
   // 내 프로필 아이콘 클릭
   const onClickMyProfile = () => {
-    alert('기능 구현중입니다...');
-    // setMyProfile((prevState) => !prevState);
+    setMyProfile((prevState) => !prevState);
   };
 
   // 로그아웃
   const logout = () => {
-    alert('로그아웃');
+    dispatch({
+      type: LOGOUT_REQUEST,
+    });
   };
 
   // modal 외부 클릭 시 닫힘
@@ -91,12 +115,14 @@ const AppLayout = ({ children }) => {
           </Mobile>
 
           <CustomSpace wrap size={16}>
+            <Span>
+              <span id="user-nickname">{me?.user.nickname}</span>님 환영합니다
+            </Span>
             <Avatar icon={<UserOutlined />} onClick={onClickMyProfile} ref={userMenu} />
             <UserProfileLists>
               {myProfile ? (
                 <ListsItem>
-                  {/* <Link href="/myPage"> */}
-                  <Link href="#">
+                  <Link href="/myPage">
                     <div id="myInfo">내 정보</div>
                   </Link>
 

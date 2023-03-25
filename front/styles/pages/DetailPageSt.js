@@ -13,9 +13,12 @@ export const Modal = styled.div`
 
 export const DetailBox = styled.div`
   position: fixed;
-  top: 10%;
-  left: 0;
-  right: 0;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  /* top: 10%; */
+  /* left: 0; */
+  /* right: 0; */
 
   margin: auto;
 
@@ -167,11 +170,11 @@ export const Textarea = styled.textarea`
   outline: none;
 
   @media (max-width: 450px) {
-    height: 330px;
+    height: 300px;
   }
 
   @media (max-width: 770px) {
-    height: 300px;
+    height: 260px;
   }
 `;
 
@@ -200,7 +203,7 @@ export const BtnWrapper = styled.div`
 
   @media (max-width: 450px) {
     flex-direction: column;
-    margin-top: 10px;
+    /* margin-top: 10px; */
   }
 `;
 

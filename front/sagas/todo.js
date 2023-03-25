@@ -26,8 +26,8 @@ function addTodoAPI(data) {
 
 function* addTodo(action) {
   try {
-    delay(1000);
-    // const result = yield call(addTodoAPI, action.data);
+    const result = yield call(addTodoAPI, action.data);
+
     yield put({
       type: ADD_TODO_SUCCESS,
       data: result.data,
@@ -42,16 +42,16 @@ function* addTodo(action) {
 }
 
 // 전체 TODOS 불러오기
-function loadTodosAPI(data) {
-  console.log('data: ', data);
-  return axios.get(`/todos?lastId=${lastId || 0}`); // 10 불러오고 없으면 0
+function loadTodosAPI(lastId) {
+  return axios.get(`/todo?lastId=${lastId || 0}`); // 10 불러오고 없으면 0
+  // return axios.get(`/todo`);
 }
 
 function* loadTodos(action) {
-  console.log('action: ', action.data);
+  console.log('action: ', action.lastId);
   try {
-    delay(1000);
-    // const result = yield call(loadTodosAPI, action.data);
+    const result = yield call(loadTodosAPI, action.lastId);
+
     yield put({
       type: LOAD_TODOS_SUCCESS,
       data: result.data,
@@ -67,12 +67,11 @@ function* loadTodos(action) {
 
 // 단일 TODO 상세조회
 function loadTodoAPI(data) {
-  return axios.get(`/todo?todo_id=${data}`);
+  return axios.get(`/todo/${data}`);
 }
 function* loadTodo(action) {
   try {
-    delay(1000);
-    // const result = yield call(loadTodoAPI, action.data);
+    const result = yield call(loadTodoAPI, action.data);
     yield put({
       type: LOAD_TODO_SUCCESS,
       data: result.data,
@@ -88,13 +87,13 @@ function* loadTodo(action) {
 
 // :TODO 수정
 function updateTodoAPI(data) {
-  return axios.patch(`/todo/${data.PostId}`, data);
+  return axios.patch(`/todo/${data.todo_id}`, data);
 }
 
 function* updateTodo(action) {
   try {
-    delay(1000);
-    // const result = yield call(updateTodoAPI, action.data);
+    const result = yield call(updateTodoAPI, action.data);
+
     yield put({
       type: UPDATE_TODO_SUCCESS,
       data: result.data,
@@ -110,13 +109,13 @@ function* updateTodo(action) {
 
 // :TODO 삭제
 function removeTodoAPI(data) {
-  return axios.delete(`/todo/${data}`); // data: post.id
+  return axios.delete(`/todo/${data.todo_id}`); // data: post.id
 } // post/post.id
 
 function* removeTodo(action) {
   try {
-    delay(1000);
-    // const result = yield call(removeTodoAPI, action.data);
+    const result = yield call(removeTodoAPI, action.data);
+
     yield put({
       type: REMOVE_TODO_SUCCESS,
       data: result.data,
