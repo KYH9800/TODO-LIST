@@ -32,12 +32,19 @@ const updateUserInfo = async (user_id, nickname, password, newPassword, newPassw
 
   if (password) {
     const userPassword = await userRepository.findUserPassword(user_id);
-    console.log('user: ', userPassword);
+
+    console.log('password: ', password);
+    console.log('userPassword.password: ', userPassword.password);
+
     const password_check = await bcrypt.compare(password, userPassword.password);
+    console.log('password_check: ', password_check);
 
     if (!password_check) {
       throw new CustomError('현재 비밀번호가 일치하지 않습니다.', 412);
     }
+
+    console.log('newPasswordConfirm: ', newPasswordConfirm);
+    console.log('newPassword: ', newPassword);
 
     if (newPassword !== newPasswordConfirm) {
       throw new CustomError('비밀번호가 일치하지 않습니다.', 412);

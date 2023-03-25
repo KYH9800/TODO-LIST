@@ -26,8 +26,8 @@ const add_todo = async (user_id, todo, detailContent, done) => {
 };
 
 // :TODO 전체조회
-const get_all_todos = async (user_id) => {
-  const todos = await todoRepository.getAllTodos(user_id);
+const get_all_todos = async (user_id, lastId) => {
+  const todos = await todoRepository.getAllTodos(user_id, lastId);
 
   return todos;
 };
@@ -47,8 +47,44 @@ const get_detail_todo = async (todo_id) => {
   return todo;
 };
 
+// :TODO 수정
+const update_todo = async (user_id, todo_id, todo, detailContent, done) => {
+  const find_todo = await todoRepository.getDetailTodo(todo_id);
+
+  if (!find_todo) {
+    throw new CustomError('수정하고자 하는 작업 내용이 존재하지 않습니다.', 404);
+  }
+
+  if (user_id !== find_todo.user_id) {
+    throw new CustomError('내가 작성한 작업내용이 아닙니다.', 403);
+  }
+
+  const update_todo = await todoRepository.updateTodo(user_id, todo_id, todo, detailContent, done);
+
+  return update_todo;
+};
+
+// :TODO 삭제
+const delete_todo = async (user_id, todo_id) => {
+  const find_todo = await todoRepository.getDetailTodo(todo_id);
+
+  if (!find_todo) {
+    throw new CustomError('삭제하고자 하는 작업 내용이 존재하지 않습니다.', 404);
+  }
+
+  if (user_id !== find_todo.user_id) {
+    throw new CustomError('내가 작성한 작업내용이 아닙니다.', 403);
+  }
+
+  const delete_todo = await todoRepository.deleteTodo(user_id, todo_id);
+
+  return delete_todo;
+};
+
 module.exports = {
   add_todo,
   get_all_todos,
   get_detail_todo,
+  update_todo,
+  delete_todo,
 };
