@@ -37,9 +37,10 @@ class LoginController {
       await res.clearCookie('accessToken');
       await res.clearCookie('refreshToken');
 
-      return res.status(204).json({
-        message: '로그아웃 완료',
-      });
+      // return res.status(204).json({
+      //   message: '로그아웃 완료',
+      // });
+      res.redirect('/');
     } catch (error) {
       console.log(error);
       if (error.message) {
