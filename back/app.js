@@ -50,8 +50,8 @@ if (process.env.NODE_ENV === 'production') {
   app.use(hpp());
   app.use(
     cors({
-      // origin: ['https://...'],
-      // credentials: true,
+      origin: true,
+      credentials: true,
     })
   );
 } else {
