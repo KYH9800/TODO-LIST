@@ -39,14 +39,8 @@ const AppLayout = ({ children }) => {
   const userMenu = useRef();
   const sideMenu = useRef();
 
-  const { me, logoutError } = useSelector((state) => state.user);
-
-  // 로그아웃 에러 시 알림
-  useEffect(() => {
-    if (logoutError) {
-      alert(logoutError);
-    }
-  }, [logoutError]);
+  const { me } = useSelector((state) => state.user);
+  console.log('me: ', me);
 
   // 내 정보가 없으면 로그인 화면으로 이동
   useEffect(() => {
@@ -116,7 +110,7 @@ const AppLayout = ({ children }) => {
 
           <CustomSpace wrap size={16}>
             <Span>
-              <span id="user-nickname">{me?.user.nickname}</span>님 환영합니다
+              <span id="user-nickname">{me?.user?.nickname}</span>님 환영합니다
             </Span>
             <Avatar icon={<UserOutlined />} onClick={onClickMyProfile} ref={userMenu} />
             <UserProfileLists>

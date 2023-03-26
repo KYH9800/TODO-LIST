@@ -18,7 +18,7 @@ import useInput from '../hooks/useInput';
 
 // redux
 import { useDispatch, useSelector } from 'react-redux';
-import { loginRequestAction, LOGOUT_REQUEST } from '../reducers/user';
+import { loginRequestAction } from '../reducers/user';
 
 // 로그인 페이지
 const Login = () => {
