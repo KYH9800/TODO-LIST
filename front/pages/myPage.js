@@ -1,6 +1,9 @@
 import React, { useCallback, useEffect } from 'react';
 import Router from 'next/router';
 
+import { Cookies } from 'react-cookie';
+const cookies = new Cookies();
+
 // AppLayout
 import AppLayout from '../components/AppLayout';
 
