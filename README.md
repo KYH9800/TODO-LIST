@@ -17,6 +17,8 @@ $ npm install
 $ npm run dev
 ```
 
+<br/>
+
 ```
 [front stack]
 - Next.js
