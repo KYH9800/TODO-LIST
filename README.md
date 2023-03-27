@@ -17,12 +17,12 @@ $ npm install
 $ npm run dev
 ```
 
-```js
-let front_stack = {
-  SPA: "Next.js",
-  State: "Redux, Redux-saga",
-  CSS: "Styled-component"
-}
+```
+[front stack]
+- Next.js
+- Redux
+- Redux-saga
+- Styled-component
 ```
 
 ## 🗄️[back]
