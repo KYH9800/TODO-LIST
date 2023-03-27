@@ -110,6 +110,9 @@ const reducer = (state = initialState, action) =>
         draft.loginDone = true;
         cookies.set('accessToken', action.data.token);
         cookies.set('refreshToken', action.data.refreshToken);
+
+        localStorage.setItem('accessToken', action.data.token);
+        localStorage.setItem('refreshToken', action.data.refreshToken);
         draft.me = action.data;
         break;
       case LOGIN_FAILURE:
@@ -140,13 +143,14 @@ const reducer = (state = initialState, action) =>
          * 응답 header에 cookie를 지우지 못하는 문제로
          * 프론트단에서 작업 시행, 원인 파악중
          ************************************************/
-        cookies.remove('accessToken');
-        cookies.remove('refreshToken');
+
         draft.logoutLoading = true;
         draft.logoutDone = false;
         draft.logoutError = null;
         break;
       case LOGOUT_SUCCESS:
+        cookies.remove('accessToken');
+        cookies.remove('refreshToken');
         draft.logoutLoading = false;
         draft.logoutDone = true;
         draft.loginDone = false;

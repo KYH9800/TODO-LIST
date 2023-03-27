@@ -12,6 +12,11 @@ import userSaga from './user';
 const accessToken = cookies.get('accessToken');
 const refreshToken = cookies.get('refreshToken');
 
+// console.log('accessToken: ', accessToken);
+// console.log('refreshToken: ', refreshToken);
+
+// axios.defaults.headers.common['Authorization'] = token;
+
 axios.defaults.baseURL = backURL;
 axios.defaults.withCredentials = true;
 axios.defaults.xsrfCookieName = 'csrftoken';
