@@ -45,7 +45,7 @@ $ npm run dev
 - Node.js
 - Express
 
-production
+[production]
 - AWS
 - nginx 적용
 - certbot을 통한 인증서 발급중.
