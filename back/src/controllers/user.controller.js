@@ -6,7 +6,8 @@ class UserController {
   // 내 정보 불러오기
   findUser = async (req, res) => {
     try {
-      const user_id = res.locals.user;
+      // const user_id = res.locals.user;
+      const user_id = 8;
       console.log('UserController user_id: ', user_id);
 
       if (!user_id) {
@@ -36,7 +37,8 @@ class UserController {
   // 내 정보 수정, 비밀번호 변경
   updateUserInfo = async (req, res) => {
     try {
-      const user_id = res.locals.user;
+      // const user_id = res.locals.user;
+      const user_id = 8;
       const { nickname, password, newPassword, newPasswordConfirm } = req.body;
 
       const updateUser = await updateUserInfo(user_id, nickname, password, newPassword, newPasswordConfirm);

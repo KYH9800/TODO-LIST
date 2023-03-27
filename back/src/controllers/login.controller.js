@@ -18,6 +18,7 @@ class LoginController {
       return res.status(200).send({
         message: '로그인 성공',
         token: token.accessToken,
+        refreshToken: token.refreshToken,
       });
     } catch (error) {
       console.log(error);
