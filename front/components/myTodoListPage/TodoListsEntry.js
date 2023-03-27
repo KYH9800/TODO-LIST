@@ -69,7 +69,16 @@ const TodoListsEntry = ({ data, num }) => {
           <DateLine>{data.createdAt.slice(0, 10)} </DateLine>
         </FrontLine>
 
-        <DetailTodo>{data.detailContent}</DetailTodo>
+        <DetailTodo>
+          {data.detailContent.split('\n').map((txt, idx) => {
+            return (
+              <span key={idx}>
+                {txt}
+                <br />
+              </span>
+            );
+          })}
+        </DetailTodo>
       </CustomLink>
     </TodoBox>
   );

@@ -40,7 +40,6 @@ const AppLayout = ({ children }) => {
   const sideMenu = useRef();
 
   const { me } = useSelector((state) => state.user);
-  console.log('me: ', me);
 
   // 내 정보가 없으면 로그인 화면으로 이동
   useEffect(() => {
