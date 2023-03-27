@@ -20,7 +20,7 @@ $ npm run dev
 <br/>
 
 ```
-[front stack]
+[front-end stack]
 - Next.js
 - Redux
 - Redux-saga
@@ -38,7 +38,18 @@ $ npm install
 $ npm run dev
 ```
 
-(nginx 적용, certbot을 통한 인증서 발급중.)
+<br/>
+
+```
+[back-end stack]
+- Node.js
+- Express
+
+production
+- AWS
+- nginx 적용
+- certbot을 통한 인증서 발급중.
+```
 
 ## ‼️[주의]
 백엔드의 경우 환경변수 설정으로 인해 로컬환경에서의 실행이 불가능합니다.
