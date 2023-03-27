@@ -17,6 +17,14 @@ $ npm install
 $ npm run dev
 ```
 
+```js
+let front_stack = {
+  SPA: "Next.js",
+  State: "Redux, Redux-saga",
+  CSS: "Styled-component"
+}
+```
+
 ## 🗄️[back]
 - 백엔드의 경우 배포가 되어있습니다. (https가 적용되지는 않았습니다.)
 - 로컬 환경에서의 실행을 원할 경우 백엔드 경로로 이동합니다.
@@ -28,8 +36,11 @@ $ npm install
 $ npm run dev
 ```
 
+(nginx 적용, certbot을 통한 인증서 발급중.)
+
 ## ‼️[주의]
-백엔드의 경우 환경변수 설정으로 인해 로컬환경에서의 실행이 불가능합니다. \n 원할 경우 개발자에게 문의부탁드립니다.
+백엔드의 경우 환경변수 설정으로 인해 로컬환경에서의 실행이 불가능합니다.
+원할 경우 개발자에게 문의부탁드립니다.
 
 <br/>
 
