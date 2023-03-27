@@ -63,10 +63,11 @@ function getRefreshTokenPayload(refreshToken) {
 // 로그인된 상태
 const isLoggedIn = async (req, res, next) => {
   try {
-    const refreshToken = req.cookies.refreshToken; // res.clearCookie('refresh_token');
-    // console.log('refreshToken: ', refreshToken);
     const accessToken = req.cookies.accessToken; // res.clearCookie('refresh_token');
-    // console.log('accessToken: ', accessToken);
+    const refreshToken = req.cookies.refreshToken; // res.clearCookie('refresh_token');
+
+    console.log('refreshToken: ', refreshToken);
+    console.log('accessToken: ', accessToken);
 
     if (!refreshToken)
       return res.status(403).json({ errorMessage: '[Refresh Token is null] 로그인된 사용자만 접근이 가능합니다.' });

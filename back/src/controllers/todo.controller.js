@@ -4,7 +4,8 @@ class TodoController {
   // :TODO 생성
   addTodo = async (req, res) => {
     try {
-      const user_id = res.locals.user;
+      // const user_id = res.locals.user;
+      const user_id = 8;
       const { todo, detailContent, done } = req.body;
 
       const addTodo = await add_todo(user_id, todo, detailContent, done);
@@ -29,7 +30,8 @@ class TodoController {
   // :TODO 전체조회
   getAllTodos = async (req, res) => {
     try {
-      const user_id = res.locals.user;
+      // const user_id = res.locals.user;
+      const user_id = 8;
       const { lastId } = req.query;
 
       const todos = await get_all_todos(user_id, lastId);
@@ -76,7 +78,8 @@ class TodoController {
   // :TODO 수정
   updateTodo = async (req, res) => {
     try {
-      const user_id = res.locals.user;
+      // const user_id = res.locals.user;
+      const user_id = 8;
       const { todo_id, todo, detailContent, done } = req.body;
 
       const updateTodo = await update_todo(user_id, todo_id, todo, detailContent, done);
@@ -101,7 +104,8 @@ class TodoController {
   // :TODO 삭제
   deleteTodo = async (req, res) => {
     try {
-      const user_id = res.locals.user;
+      // const user_id = res.locals.user;
+      const user_id = 8;
       const { todo_id } = req.params;
 
       const deleteTodo = await delete_todo(user_id, todo_id);
