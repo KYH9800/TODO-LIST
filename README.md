@@ -1,6 +1,6 @@
 ## 📖TODO-LIST
 
-#### 1. 🗝️실행방법
+## 1. 🗝️실행방법
 [해당 프로젝트 file이 없다면 해당 프로젝트를 클론해주세요.]
 ```
 $ git clone https://github.com/KYH9800/TODO-LIST.git
@@ -28,7 +28,7 @@ $ npm install
 $ npm run dev
 ```
 
-### ‼️[주의]
+## ‼️[주의]
 백엔드의 경우 환경변수 설정으로 인해 로컬환경에서의 실행이 불가능합니다. \n 원할 경우 개발자에게 문의부탁드립니다.
 
 # ❔Question
