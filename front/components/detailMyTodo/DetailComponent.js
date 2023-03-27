@@ -210,7 +210,16 @@ const DetailComponent = ({ detailTodoList, detailmodal }) => {
               <Input type="text" placeholder="주요 내용" value={todo} onChange={onChangeTodo} />
             </div>
           ) : (
-            <h3 className="todo-title">{detailTodoList?.todo}</h3>
+            <h3 className="todo-title">
+              {detailTodoList?.todo.split('\n').map((txt, idx) => {
+                return (
+                  <span key={idx}>
+                    {txt}
+                    <br />
+                  </span>
+                );
+              })}
+            </h3>
           )}
         </div>
 
@@ -225,7 +234,14 @@ const DetailComponent = ({ detailTodoList, detailmodal }) => {
         ) : (
           <div className="todo-content">
             {detailTodoList?.detailContent ? (
-              detailTodoList?.detailContent
+              detailTodoList?.detailContent.split('\n').map((txt, idx) => {
+                return (
+                  <span key={idx}>
+                    {txt}
+                    <br />
+                  </span>
+                );
+              })
             ) : (
               <h5 className="none">상세 계획이 존재하지 않습니다.</h5>
             )}
